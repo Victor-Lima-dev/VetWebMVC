@@ -16,15 +16,7 @@ namespace VetWeb
         public string EfeitoAdverso { get; set; }
         public EfeitoSistemico EfeitoSistemico { get; set; }
 
-        public Remedio(string nome, string principioAtivo, string mecanismoAcao, string viaAdministracao, string efeitoAdverso, EfeitoSistemico efeitoSistemico)
-        {
-            Nome = nome;
-            PrincipioAtivo = principioAtivo;
-            MecanismoAcao = mecanismoAcao;
-            ViaAdministracao = viaAdministracao;
-            EfeitoAdverso = efeitoAdverso;
-            EfeitoSistemico = efeitoSistemico;
-        }
+     
     }
 
     

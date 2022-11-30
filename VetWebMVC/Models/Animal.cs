@@ -17,15 +17,7 @@ namespace VetWeb
         public string Condicao { get; set; }
         public Parametros Parametros { get; set; }
 
-        public Animal(string nome, string faseDaVida, string sexo, string comorbidade, string condicao, Parametros parametros)
-        {
-            Nome = nome;
-            FaseDaVida = faseDaVida;
-            Sexo = sexo;
-            Comorbidade = comorbidade;
-            Condicao = condicao;
-            Parametros = parametros;
-        }
+        
 
 
     }

@@ -4,6 +4,7 @@ namespace VetWeb
 {
     public class EfeitoSistemico
     {
+        public int EfeitoSistemicoId { get; set; }
         public Boolean PodeAumentarFrequenciaCardiaca { get; set; }
         public Boolean PodeDiminuirFrequenciaCardiaca { get; set; }
 
