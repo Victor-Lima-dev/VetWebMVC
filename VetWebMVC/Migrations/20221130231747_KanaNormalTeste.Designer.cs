@@ -11,8 +11,8 @@ using VetWebMVC.Context;
 namespace VetWebMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221130160931_Initial")]
-    partial class Initial
+    [Migration("20221130231747_KanaNormalTeste")]
+    partial class KanaNormalTeste
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,52 +57,7 @@ namespace VetWebMVC.Migrations
 
                     b.HasKey("AnimalId");
 
-                    b.HasIndex("ParametrosId");
-
                     b.ToTable("Animais");
-                });
-
-            modelBuilder.Entity("VetWeb.EfeitoSistemico", b =>
-                {
-                    b.Property<int>("EfeitoSistemicoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EfeitoSistemicoId"));
-
-                    b.Property<bool>("PodeAumentarFrequenciaCardiaca")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeAumentarFrequenciaRespiratoria")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeAumentarHematocritos")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeAumentarLeucocitos")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeAumentarPressaoArterial")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeDiminuirFrequenciaCardiaca")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeDiminuirFrequenciaRespiratoria")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeDiminuirHematocritos")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeDiminuirLeucocitos")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PodeDiminuirPressaoArterial")
-                        .HasColumnType("bit");
-
-                    b.HasKey("EfeitoSistemicoId");
-
-                    b.ToTable("EfeitoSistemico");
                 });
 
             modelBuilder.Entity("VetWeb.Parametros", b =>
@@ -171,31 +126,7 @@ namespace VetWebMVC.Migrations
 
                     b.HasKey("RemedioId");
 
-                    b.HasIndex("EfeitoSistemicoId");
-
                     b.ToTable("Remedios");
-                });
-
-            modelBuilder.Entity("VetWeb.Animal", b =>
-                {
-                    b.HasOne("VetWeb.Parametros", "Parametros")
-                        .WithMany()
-                        .HasForeignKey("ParametrosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Parametros");
-                });
-
-            modelBuilder.Entity("VetWeb.Remedio", b =>
-                {
-                    b.HasOne("VetWeb.EfeitoSistemico", "EfeitoSistemico")
-                        .WithMany()
-                        .HasForeignKey("EfeitoSistemicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EfeitoSistemico");
                 });
 #pragma warning restore 612, 618
         }

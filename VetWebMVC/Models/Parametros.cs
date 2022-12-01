@@ -10,6 +10,14 @@
 
         public string Leucocitos { get; set; }
 
-    
+        public Parametros(int parametrosId, string frequenciaCardiaca, string frequenciaRespiratoria, string pressaoArterialSistemica, string hematocrito, string leucocitos)
+        {
+            ParametrosId = parametrosId;
+            FrequenciaCardiaca = frequenciaCardiaca;
+            FrequenciaRespiratoria = frequenciaRespiratoria;
+            PressaoArterialSistemica = pressaoArterialSistemica;
+            Hematocrito = hematocrito;
+            Leucocitos = leucocitos;
+        }
     }
 }

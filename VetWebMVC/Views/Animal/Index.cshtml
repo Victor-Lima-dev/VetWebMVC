@@ -27,6 +27,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.Condicao)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parametros.FrequenciaCardiaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parametros.FrequenciaRespiratoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parametros.PressaoArterialSistemica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parametros.Hematocrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parametros.Leucocitos)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -48,6 +63,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Condicao)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parametros.FrequenciaCardiaca)
+            </td>
+             <td>
+                    @Html.DisplayFor(modelItem => item.Parametros.FrequenciaRespiratoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parametros.PressaoArterialSistemica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parametros.Hematocrito)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parametros.Leucocitos)
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AnimalId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.AnimalId">Details</a> |

@@ -12,5 +12,7 @@ namespace VetWebMVC.Context
     public DbSet<Animal> Animais { get; set; }
 
     public DbSet<Remedio> Remedios { get; set; }
+
+    public DbSet<Parametros> Parametros { get; set; }
     }
 }

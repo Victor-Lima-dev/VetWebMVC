@@ -14,9 +14,10 @@ namespace VetWeb
         public string MecanismoAcao { get; set; }
         public string ViaAdministracao { get; set; }
         public string EfeitoAdverso { get; set; }
-        public EfeitoSistemico EfeitoSistemico { get; set; }
+        //public EfeitoSistemico EfeitoSistemico { get; set; }
+        public int EfeitoSistemicoId { get; set; }
 
-     
+
     }
 
     
