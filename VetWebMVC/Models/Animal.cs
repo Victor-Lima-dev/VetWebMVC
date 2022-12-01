@@ -18,7 +18,7 @@ namespace VetWeb
         public Parametros Parametros { get; set; }
         public int ParametrosId { get; set; }
 
-        public void EncontraParametros(Animal animal,int id, IEnumerable<Parametros> parametros)
+        public void SetaParametros(Animal animal,int id, IEnumerable<Parametros> parametros)
         {
             animal.Parametros = parametros.FirstOrDefault(c => c.ParametrosId == id);
         }

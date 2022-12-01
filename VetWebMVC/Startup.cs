@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VetWebMVC.Context;
+using VetWebMVC.Services;
 
 namespace VetWebMVC
 {
@@ -18,6 +19,9 @@ namespace VetWebMVC
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+
+            services.AddScoped<AnimalServices>();
+
 
             services.AddMemoryCache();
             services.AddSession();

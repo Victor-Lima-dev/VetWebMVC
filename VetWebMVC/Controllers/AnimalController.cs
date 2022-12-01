@@ -1,39 +1,35 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VetWebMVC.Context;
-
+using VetWebMVC.Services;
 
 namespace VetWebMVC.Controllers
 {
     public class AnimalController : Controller
     {
-        public readonly AppDbContext _context;
+        private readonly AnimalServices _animalServices;
 
-        public AnimalController(AppDbContext context)
+        public AnimalController(AnimalServices animalServices)
         {
-            _context = context;
+            _animalServices = animalServices;
         }
 
         public ActionResult Index()
         {
+            var lista = _animalServices.ListaAnimais();
 
-            var animais = _context.Animais.ToList();
-            var parametros = _context.Parametros.ToList();
-
-            foreach (var item in animais)
-            {
-                item.EncontraParametros(item, 1, parametros);
-            }
-
-   
+            
 
 
-            return View(animais);
+
+            return View(lista);
         }
 
         // GET: AnimalController/Details/5
         public ActionResult Details(int id)
         {
+                     
+
             return View();
         }
 
@@ -46,10 +42,15 @@ namespace VetWebMVC.Controllers
         // POST: AnimalController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection animal)
         {
             try
             {
+
+
+
+
+
                 return RedirectToAction(nameof(Index));
             }
             catch
