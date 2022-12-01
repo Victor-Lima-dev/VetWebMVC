@@ -21,6 +21,12 @@ namespace VetWebMVC.Services
             return _context.Animais.ToList();
         }
 
+        public List<Parametros> ListaParametros()
+        {
+            return _context.Parametros.ToList();
+        }
+
+
         //Método para adicionar um animal para a lista
         public void AdicionaAnimal(Animal animal)
         {

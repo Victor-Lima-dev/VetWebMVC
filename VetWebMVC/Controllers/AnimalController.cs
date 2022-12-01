@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VetWeb;
 using VetWebMVC.Context;
 using VetWebMVC.Services;
 
@@ -8,6 +9,7 @@ namespace VetWebMVC.Controllers
     public class AnimalController : Controller
     {
         private readonly AnimalServices _animalServices;
+        
 
         public AnimalController(AnimalServices animalServices)
         {
@@ -17,10 +19,12 @@ namespace VetWebMVC.Controllers
         public ActionResult Index()
         {
             var lista = _animalServices.ListaAnimais();
+            var listaParametros = _animalServices.ListaParametros();
 
-            
-
-
+            foreach (var item in lista)
+            {
+                item.SetaParametros(item, 1, listaParametros);
+            }
 
             return View(lista);
         }
