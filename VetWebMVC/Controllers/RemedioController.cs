@@ -25,7 +25,8 @@ namespace VetWebMVC.Controllers
         // GET: RemedioController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var remedioDetalhe = _remedioServices.DetalheRemedio(id);
+            return View(remedioDetalhe);
         }
 
         // GET: RemedioController/Create
@@ -54,7 +55,8 @@ namespace VetWebMVC.Controllers
         // GET: RemedioController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var remedioDetalhe = _remedioServices.DetalheRemedio(id);
+            return View(remedioDetalhe);
         }
 
         // POST: RemedioController/Edit/5
@@ -64,6 +66,7 @@ namespace VetWebMVC.Controllers
         {
             try
             {
+                _remedioServices.EditarRemedio(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -75,7 +78,8 @@ namespace VetWebMVC.Controllers
         // GET: RemedioController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var remedioDetalhe = _remedioServices.DetalheRemedio(id);
+            return View(remedioDetalhe);
         }
 
         // POST: RemedioController/Delete/5
@@ -85,6 +89,7 @@ namespace VetWebMVC.Controllers
         {
             try
             {
+                _remedioServices.DeletarRemedio(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

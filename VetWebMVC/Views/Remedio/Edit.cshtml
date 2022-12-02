@@ -1,0 +1,104 @@
+﻿@model VetWeb.Remedio
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Remedio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="RemedioId" />
+            <div class="form-group">
+                <label asp-for="PrincipioAtivo" class="control-label"></label>
+                <input asp-for="PrincipioAtivo" class="form-control" />
+                <span asp-validation-for="PrincipioAtivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MecanismoAcao" class="control-label"></label>
+                <input asp-for="MecanismoAcao" class="form-control" />
+                <span asp-validation-for="MecanismoAcao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ViaAdministracao" class="control-label"></label>
+                <input asp-for="ViaAdministracao" class="form-control" />
+                <span asp-validation-for="ViaAdministracao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EfeitoAdverso" class="control-label"></label>
+                <input asp-for="EfeitoAdverso" class="form-control" />
+                <span asp-validation-for="EfeitoAdverso" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeAumentarFrequenciaCardiaca" /> @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaCardiaca)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeDiminuirFrequenciaCardiaca" /> @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaCardiaca)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeAumentarFrequenciaRespiratoria" /> @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaRespiratoria)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeDiminuirFrequenciaRespiratoria" /> @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaRespiratoria)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeAumentarPressaoArterial" /> @Html.DisplayNameFor(model => model.PodeAumentarPressaoArterial)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeDiminuirPressaoArterial" /> @Html.DisplayNameFor(model => model.PodeDiminuirPressaoArterial)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeAumentarHematocritos" /> @Html.DisplayNameFor(model => model.PodeAumentarHematocritos)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeDiminuirHematocritos" /> @Html.DisplayNameFor(model => model.PodeDiminuirHematocritos)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeAumentarLeucocitos" /> @Html.DisplayNameFor(model => model.PodeAumentarLeucocitos)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PodeDiminuirLeucocitos" /> @Html.DisplayNameFor(model => model.PodeDiminuirLeucocitos)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

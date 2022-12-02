@@ -1,0 +1,119 @@
+﻿@model IEnumerable<VetWeb.Remedio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrincipioAtivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MecanismoAcao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViaAdministracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EfeitoAdverso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaCardiaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaCardiaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaRespiratoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaRespiratoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeAumentarPressaoArterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeDiminuirPressaoArterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeAumentarHematocritos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeDiminuirHematocritos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeAumentarLeucocitos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodeDiminuirLeucocitos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrincipioAtivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MecanismoAcao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViaAdministracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EfeitoAdverso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeAumentarFrequenciaCardiaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeDiminuirFrequenciaCardiaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeAumentarFrequenciaRespiratoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeDiminuirFrequenciaRespiratoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeAumentarPressaoArterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeDiminuirPressaoArterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeAumentarHematocritos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeDiminuirHematocritos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeAumentarLeucocitos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodeDiminuirLeucocitos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RemedioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RemedioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RemedioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

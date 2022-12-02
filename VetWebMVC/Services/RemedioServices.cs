@@ -111,7 +111,31 @@ namespace VetWebMVC.Services
             _context.SaveChanges();
         }
 
+        //Método para detalhes
 
+        public Remedio DetalheRemedio(int id)
+        {
+            return _context.Remedios.FirstOrDefault(c => c.RemedioId == id);
+        }
+
+        //Método para editar
+
+        public void EditarRemedio(int id)
+        {
+            var remedioEditado = _context.Remedios.FirstOrDefault(c => c.RemedioId == id);
+            _context.Remedios.Update(remedioEditado);
+            _context.SaveChanges();
+        }
+
+
+        //Metodo para deletar
+
+        public void DeletarRemedio(int id)
+        {
+            var remedioDeletado = _context.Remedios.FirstOrDefault(c => c.RemedioId == id);
+            _context.Remedios.Remove(remedioDeletado);
+            _context.SaveChanges();
+        }
 
     }
 }

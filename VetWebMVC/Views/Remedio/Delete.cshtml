@@ -1,0 +1,111 @@
+﻿@model VetWeb.Remedio
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Remedio</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrincipioAtivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrincipioAtivo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MecanismoAcao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MecanismoAcao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ViaAdministracao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ViaAdministracao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EfeitoAdverso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EfeitoAdverso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaCardiaca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeAumentarFrequenciaCardiaca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaCardiaca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeDiminuirFrequenciaCardiaca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeAumentarFrequenciaRespiratoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeAumentarFrequenciaRespiratoria)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeDiminuirFrequenciaRespiratoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeDiminuirFrequenciaRespiratoria)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeAumentarPressaoArterial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeAumentarPressaoArterial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeDiminuirPressaoArterial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeDiminuirPressaoArterial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeAumentarHematocritos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeAumentarHematocritos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeDiminuirHematocritos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeDiminuirHematocritos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeAumentarLeucocitos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeAumentarLeucocitos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PodeDiminuirLeucocitos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PodeDiminuirLeucocitos)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="RemedioId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
