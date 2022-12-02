@@ -15,13 +15,14 @@ namespace VetWeb
         public string Sexo { get; set; }
         public string Comorbidade { get; set; }
         public string Condicao { get; set; }
-        public Parametros Parametros { get; set; }
-        public int ParametrosId { get; set; }
 
-        public void SetaParametros(Animal animal,int id, IEnumerable<Parametros> parametros)
-        {
-            animal.Parametros = parametros.FirstOrDefault(c => c.ParametrosId == id);
-        }
+        //Parametros
+        public string FrequenciaCardiaca { get; set; }
+        public string FrequenciaRespiratoria { get; set; }
+        public string PressaoArterialSistemica { get; set; }
+        public string Hematocrito { get; set; }
+
+        public string Leucocitos { get; set; }
 
 
     }

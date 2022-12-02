@@ -13,6 +13,6 @@ namespace VetWebMVC.Context
 
     public DbSet<Remedio> Remedios { get; set; }
 
-    public DbSet<Parametros> Parametros { get; set; }
+
     }
 }

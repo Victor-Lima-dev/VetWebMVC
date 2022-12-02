@@ -9,22 +9,24 @@ namespace VetWebMVC.Controllers
     public class AnimalController : Controller
     {
         private readonly AnimalServices _animalServices;
+        private readonly AppDbContext _context;
         
 
-        public AnimalController(AnimalServices animalServices)
+        public AnimalController(AnimalServices animalServices, AppDbContext context)
         {
             _animalServices = animalServices;
+            _context = context;
         }
 
         public ActionResult Index()
         {
             var lista = _animalServices.ListaAnimais();
-            var listaParametros = _animalServices.ListaParametros();
+            //var listaParametros = _animalServices.ListaParametros();
 
-            foreach (var item in lista)
-            {
-                item.SetaParametros(item, 1, listaParametros);
-            }
+            //foreach (var item in lista)
+            //{
+            //    //item.SetaParametros(item, 1, listaParametros);
+            //}
 
             return View(lista);
         }
@@ -48,8 +50,8 @@ namespace VetWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Animal animal)
         {
-            try
-            {
+            try { 
+            
                
                 _animalServices.AdicionaAnimal(animal);
                 return RedirectToAction(nameof(Index));

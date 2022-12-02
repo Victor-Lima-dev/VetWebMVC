@@ -5,7 +5,7 @@
 namespace VetWebMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class Teste3 : Migration
+    public partial class ResetBd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,19 +21,6 @@ namespace VetWebMVC.Migrations
                     Sexo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comorbidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Condicao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParametrosId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Animais", x => x.AnimalId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Parametros",
-                columns: table => new
-                {
-                    ParametrosId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     FrequenciaCardiaca = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FrequenciaRespiratoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PressaoArterialSistemica = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -42,7 +29,7 @@ namespace VetWebMVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Parametros", x => x.ParametrosId);
+                    table.PrimaryKey("PK_Animais", x => x.AnimalId);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,7 +43,16 @@ namespace VetWebMVC.Migrations
                     MecanismoAcao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ViaAdministracao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EfeitoAdverso = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EfeitoSistemicoId = table.Column<int>(type: "int", nullable: false)
+                    PodeAumentarFrequenciaCardiaca = table.Column<bool>(type: "bit", nullable: false),
+                    PodeDiminuirFrequenciaCardiaca = table.Column<bool>(type: "bit", nullable: false),
+                    PodeAumentarFrequenciaRespiratoria = table.Column<bool>(type: "bit", nullable: false),
+                    PodeDiminuirFrequenciaRespiratoria = table.Column<bool>(type: "bit", nullable: false),
+                    PodeAumentarPressaoArterial = table.Column<bool>(type: "bit", nullable: false),
+                    PodeDiminuirPressaoArterial = table.Column<bool>(type: "bit", nullable: false),
+                    PodeAumentarHematocritos = table.Column<bool>(type: "bit", nullable: false),
+                    PodeDiminuirHematocritos = table.Column<bool>(type: "bit", nullable: false),
+                    PodeAumentarLeucocitos = table.Column<bool>(type: "bit", nullable: false),
+                    PodeDiminuirLeucocitos = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,9 +65,6 @@ namespace VetWebMVC.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Animais");
-
-            migrationBuilder.DropTable(
-                name: "Parametros");
 
             migrationBuilder.DropTable(
                 name: "Remedios");

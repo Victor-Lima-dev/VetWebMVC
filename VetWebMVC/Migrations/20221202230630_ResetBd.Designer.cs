@@ -11,8 +11,8 @@ using VetWebMVC.Context;
 namespace VetWebMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221130231747_KanaNormalTeste")]
-    partial class KanaNormalTeste
+    [Migration("20221202230630_ResetBd")]
+    partial class ResetBd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,30 +44,6 @@ namespace VetWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ParametrosId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AnimalId");
-
-                    b.ToTable("Animais");
-                });
-
-            modelBuilder.Entity("VetWeb.Parametros", b =>
-                {
-                    b.Property<int>("ParametrosId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParametrosId"));
-
                     b.Property<string>("FrequenciaCardiaca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,13 +60,21 @@ namespace VetWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PressaoArterialSistemica")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ParametrosId");
+                    b.Property<string>("Sexo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Parametros");
+                    b.HasKey("AnimalId");
+
+                    b.ToTable("Animais");
                 });
 
             modelBuilder.Entity("VetWeb.Remedio", b =>
@@ -105,9 +89,6 @@ namespace VetWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EfeitoSistemicoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("MecanismoAcao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -115,6 +96,36 @@ namespace VetWebMVC.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PodeAumentarFrequenciaCardiaca")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeAumentarFrequenciaRespiratoria")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeAumentarHematocritos")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeAumentarLeucocitos")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeAumentarPressaoArterial")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeDiminuirFrequenciaCardiaca")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeDiminuirFrequenciaRespiratoria")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeDiminuirHematocritos")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeDiminuirLeucocitos")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("PodeDiminuirPressaoArterial")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PrincipioAtivo")
                         .IsRequired()
