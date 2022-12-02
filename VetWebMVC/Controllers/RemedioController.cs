@@ -1,57 +1,48 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VetWeb;
-using VetWebMVC.Context;
 using VetWebMVC.Services;
 
 namespace VetWebMVC.Controllers
 {
-    public class AnimalController : Controller
+    public class RemedioController : Controller
     {
-        private readonly AnimalServices _animalServices;
-        
+        private readonly RemedioServices _remedioServices;
 
-        public AnimalController(AnimalServices animalServices)
+        public RemedioController(RemedioServices remedioServices)
         {
-            _animalServices = animalServices;
+            _remedioServices = remedioServices;
         }
 
+
+        // GET: RemedioController
         public ActionResult Index()
         {
-            var lista = _animalServices.ListaAnimais();
-            var listaParametros = _animalServices.ListaParametros();
-
-            foreach (var item in lista)
-            {
-                item.SetaParametros(item, 1, listaParametros);
-            }
-
-            return View(lista);
+            var listaRemedios = _remedioServices.ListarRemedios();
+            return View(listaRemedios);
         }
 
-        // GET: AnimalController/Details/5
+        // GET: RemedioController/Details/5
         public ActionResult Details(int id)
         {
-                     
-
             return View();
         }
 
-        // GET: AnimalController/Create
+        // GET: RemedioController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AnimalController/Create
+        // POST: RemedioController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Animal animal)
+        public ActionResult Create(Remedio remedio)
         {
             try
             {
-               
-                _animalServices.AdicionaAnimal(animal);
+                _remedioServices.AdicionaRemedio(remedio);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -60,13 +51,13 @@ namespace VetWebMVC.Controllers
             }
         }
 
-        // GET: AnimalController/Edit/5
+        // GET: RemedioController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: AnimalController/Edit/5
+        // POST: RemedioController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -81,13 +72,13 @@ namespace VetWebMVC.Controllers
             }
         }
 
-        // GET: AnimalController/Delete/5
+        // GET: RemedioController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: AnimalController/Delete/5
+        // POST: RemedioController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

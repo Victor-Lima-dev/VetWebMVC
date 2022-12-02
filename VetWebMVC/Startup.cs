@@ -21,6 +21,7 @@ namespace VetWebMVC
             services.AddControllersWithViews();
 
             services.AddScoped<AnimalServices>();
+            services.AddScoped<RemedioServices>();
 
 
             services.AddMemoryCache();
