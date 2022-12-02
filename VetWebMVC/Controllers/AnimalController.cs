@@ -28,7 +28,9 @@ namespace VetWebMVC.Controllers
         // GET: AnimalController/Details/5
         public ActionResult Details(int id)
         {
-                     
+            var destaque = _animalServices.DetalheAnimal(id);
+
+            return View(destaque);
 
             return View();
         }
@@ -44,8 +46,7 @@ namespace VetWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Animal animal)
         {
-          
-                      
+                           
                 _animalServices.AdicionaAnimal(animal);
                 return RedirectToAction(nameof(Index));
             
@@ -55,7 +56,9 @@ namespace VetWebMVC.Controllers
         // GET: AnimalController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            
+
+            return View(_animalServices.DetalheAnimal(id));
         }
 
         // POST: AnimalController/Edit/5
@@ -65,6 +68,7 @@ namespace VetWebMVC.Controllers
         {
             try
             {
+                _animalServices.EditarAnimal(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -76,7 +80,8 @@ namespace VetWebMVC.Controllers
         // GET: AnimalController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            
+            return View(_animalServices.DetalheAnimal(id));
         }
 
         // POST: AnimalController/Delete/5
@@ -86,6 +91,9 @@ namespace VetWebMVC.Controllers
         {
             try
             {
+                _animalServices.ExcluirAnimal(id);
+
+
                 return RedirectToAction(nameof(Index));
             }
             catch

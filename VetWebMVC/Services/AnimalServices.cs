@@ -30,7 +30,29 @@ namespace VetWebMVC.Services
             _context.SaveChanges();
         }
 
+        //Método para a view de detalhes
+        
+        public Animal DetalheAnimal(int id)
+        {
+            return _context.Animais.FirstOrDefault(c => c.AnimalId == id);
+        }
 
+        //Método para excluir um animal
+        public void ExcluirAnimal(int id)
+        {
+            var animalExcluido = _context.Animais.FirstOrDefault(c => c.AnimalId == id);
+            _context.Animais.Remove(animalExcluido);
+            _context.SaveChanges();
+        }
+
+        //Método para editar um animal
+        public void EditarAnimal(int id)
+        {
+            var animalEditado = _context.Animais.FirstOrDefault(c => c.AnimalId == id);
+            _context.Update(animalEditado);
+            _context.SaveChanges();
+
+        }
 
     }
 }
