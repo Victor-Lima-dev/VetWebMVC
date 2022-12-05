@@ -15,5 +15,15 @@ namespace VetWebMVC.Models.ViewModel
             ListaAnimais = listaAnimais;
             ListaRemedios = listaRemedios;
         }
+
+        public ListaAnimaisRemediosViewModel(Animal animal, Remedio remedio)
+        {
+            Animal = animal;
+            Remedio = remedio;
+        }
+
+        public ListaAnimaisRemediosViewModel()
+        {
+        }
     }
 }

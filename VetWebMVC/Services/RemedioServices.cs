@@ -21,7 +21,7 @@ namespace VetWebMVC.Services
             ConferePressaoArterial(parametros, efeitoSistemico);
             ConfereHematocritos(parametros, efeitoSistemico);
             ConfereLeucocitos(parametros, efeitoSistemico);
-            //_context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public void ConfereFrequenciaCardiaca(Animal parametros, Remedio efeitoSistemico)

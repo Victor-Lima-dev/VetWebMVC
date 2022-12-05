@@ -12,5 +12,9 @@ namespace VetWebMVC.Models.ViewModel
             Animal = animal;
             Remedio = remedio;
         }
+
+        public AnimalRemedioViewModel()
+        {
+        }
     }
 }

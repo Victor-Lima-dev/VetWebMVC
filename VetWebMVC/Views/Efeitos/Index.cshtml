@@ -1,3 +1,17 @@
 ﻿@using VetWebMVC.Models.ViewModel
 @model ListaAnimaisRemediosViewModel;
 
+
+
+
+<form asp-action="AplicaEfeito" method="post">
+
+
+
+    <select asp-for="Animal.AnimalId" asp-items="@(new SelectList(Model.ListaAnimais,"AnimalId", "AnimalId"))"></select>
+    <select asp-for="Remedio.RemedioId" asp-items="@(new SelectList(Model.ListaRemedios,"RemedioId", "RemedioId"))"></select>
+    
+    <div class="form-group">
+        <input type="submit" value="Aplicar" class="btn btn-primary" />
+    </div>
+</form>
