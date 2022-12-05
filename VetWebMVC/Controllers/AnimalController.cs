@@ -9,8 +9,6 @@ namespace VetWebMVC.Controllers
     public class AnimalController : Controller
     {
         private readonly AnimalServices _animalServices;
-       
-        
 
         public AnimalController(AnimalServices animalServices, AppDbContext context)
         {
@@ -32,7 +30,6 @@ namespace VetWebMVC.Controllers
 
             return View(destaque);
 
-            return View();
         }
 
         // GET: AnimalController/Create

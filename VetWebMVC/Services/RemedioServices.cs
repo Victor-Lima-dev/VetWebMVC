@@ -12,7 +12,6 @@ namespace VetWebMVC.Services
             _context = context;
         }
 
-
         //Metodos para aplicar os efeitos do remedio
 
         public void ConfereTodosOsMetodos(Animal parametros, Remedio efeitoSistemico)
@@ -22,6 +21,7 @@ namespace VetWebMVC.Services
             ConferePressaoArterial(parametros, efeitoSistemico);
             ConfereHematocritos(parametros, efeitoSistemico);
             ConfereLeucocitos(parametros, efeitoSistemico);
+            //_context.SaveChanges();
         }
 
         public void ConfereFrequenciaCardiaca(Animal parametros, Remedio efeitoSistemico)
@@ -92,10 +92,6 @@ namespace VetWebMVC.Services
             }
             else { return; }
         }
-
-
-
-
 
         //Método para listar todos os remedios
         public List<Remedio> ListarRemedios()
