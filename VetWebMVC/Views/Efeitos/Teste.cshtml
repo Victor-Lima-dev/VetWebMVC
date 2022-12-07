@@ -1,5 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using VetWebMVC.Models.ViewModel;
+@model AnimalRemedioViewModel;
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Detalhes do Animal</h2>
+        <hr />
+        <dl class="row">
+            < dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.FaseDaVida)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.FaseDaVida)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.Sexo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.Sexo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.Comorbidade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.Comorbidade)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.Condicao)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.Condicao)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.FrequenciaCardiaca)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.FrequenciaCardiaca)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Animal.FrequenciaRespiratoria)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Animal.FrequenciaRespiratoria)
+            </dd>
+        </dl>
+        </div>
+           </div>
+
+
+
+
+
+
+
+
+
+

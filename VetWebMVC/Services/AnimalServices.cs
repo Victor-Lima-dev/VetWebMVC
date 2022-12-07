@@ -38,6 +38,7 @@ namespace VetWebMVC.Services
         }
 
         //Método para excluir um animal
+        
         public void ExcluirAnimal(int id)
         {
             var animalExcluido = _context.Animais.FirstOrDefault(c => c.AnimalId == id);

@@ -24,6 +24,7 @@ namespace VetWeb
 
         public string Leucocitos { get; set; }
 
-
+        
+        
     }
 }

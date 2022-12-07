@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
 using VetWeb;
 using VetWebMVC.Context;
 using VetWebMVC.Models.ViewModel;
@@ -19,13 +20,22 @@ namespace VetWebMVC.Controllers
             _remedioServices = remedioServices;
         }
 
-        public IActionResult Teste()
+        public IActionResult Teste(int animalId,int remedioId)
         {
-            return View();
+            
+            var animalSelecionado = _animalServices.DetalheAnimal(animalId);
+            var remedioSelecionado = _remedioServices.DetalheRemedio(remedioId);
+
+            var teste = new AnimalRemedioViewModel(animalSelecionado, remedioSelecionado);
+
+
+            return View(teste);
         }
-        
+       
         public IActionResult Index()
         {
+            
+          
             var listaAnimais = _animalServices.ListaAnimais();
             var listaRemedios = _remedioServices.ListarRemedios();
 
@@ -40,21 +50,24 @@ namespace VetWebMVC.Controllers
 
         //ta chegando 0 aqui, por isso ta passando, ta chegando um objeto todo nulo
         //o método funciona, o que ta faltando é enviar o objeto preenchido pra ele
+        
+
         [HttpPost]
         public IActionResult AplicaEfeito(Animal animal, Remedio remedio)
         {
            var animalTeste = _context.Animais.FirstOrDefault(c => c.AnimalId == animal.AnimalId);
-            var remedioTeste = _context.Remedios.FirstOrDefault(c => c.RemedioId == remedio.RemedioId);
+           var remedioTeste = _context.Remedios.FirstOrDefault(c => c.RemedioId == remedio.RemedioId);
 
-            //var animalTeste = _context.Animais.FirstOrDefault(c => c.AnimalId == 1);
-            //var remedioTeste = _context.Remedios.FirstOrDefault(c => c.RemedioId == 2);
             _remedioServices.ConfereTodosOsMetodos(animalTeste, remedioTeste);
 
-            //_remedioServices.ConfereTodosOsMetodos(animal, remedio);
+            //return para a view de teste enviando um id do objeto
+            return RedirectToAction("Teste", new { animalId = animal.AnimalId, remedioId = remedio.RemedioId });
 
 
-            return RedirectToAction(nameof(Teste));
+
+
         }
+
 
 
     }

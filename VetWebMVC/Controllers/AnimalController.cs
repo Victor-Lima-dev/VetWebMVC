@@ -24,6 +24,7 @@ namespace VetWebMVC.Controllers
         }
 
         // GET: AnimalController/Details/5
+        
         public ActionResult Details(int id)
         {
             var destaque = _animalServices.DetalheAnimal(id);
